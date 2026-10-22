@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#080B14"/>
+  <rect x="2" y="2" width="60" height="60" rx="12" stroke="#268BFF" stroke-width="2" stroke-opacity="0.4"/>
+  <!-- Terminal window dots -->
+  <circle cx="14" cy="14" r="3" fill="#FF5F56"/>
+  <circle cx="23" cy="14" r="3" fill="#FFBD2E"/>
+  <circle cx="32" cy="14" r="3" fill="#27C93F"/>
+  <!-- Terminal Prompt >_ -->
+  <path d="M16 28 L28 38 L16 48" stroke="#268BFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="34" y1="48" x2="48" y2="48" stroke="#9566FF" stroke-width="4" stroke-linecap="round"/>
+</svg>
