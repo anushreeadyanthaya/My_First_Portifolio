@@ -80,9 +80,9 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="rounded-2xl border border-dark-border/40 dark:border-dark-border/40 light:border-light-border bg-dark-surface/90 dark:bg-dark-surface/90 light:bg-light-surface p-6 sm:p-8 backdrop-blur-md shadow-2xl relative glow-border">
-      <div className="flex items-center justify-between pb-4 mb-6 border-b border-dark-border/30 dark:border-dark-border/30 light:border-light-border/40">
-        <h3 className="font-mono text-sm font-semibold text-white dark:text-white light:text-slate-900">
+    <div className="rounded-2xl border border-light-border dark:border-dark-border/40 bg-light-surface dark:bg-dark-surface/90 p-6 sm:p-8 backdrop-blur-md shadow-2xl relative glow-border">
+      <div className="flex items-center justify-between pb-4 mb-6 border-b border-light-border/40 dark:border-dark-border/30">
+        <h3 className="font-mono text-sm font-semibold text-slate-900 dark:text-white">
           Send a Message
         </h3>
         <span className="font-mono text-xs text-slate-500">Contact Form</span>
@@ -90,12 +90,12 @@ export default function ContactForm() {
 
       {submittedStatus ? (
         <div className="space-y-5 py-4">
-          <div className="p-4 rounded-xl border border-emerald-500/40 bg-emerald-500/10 text-emerald-300 space-y-2">
+          <div className="p-4 rounded-xl border border-emerald-500/40 bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 space-y-2">
             <div className="flex items-center gap-2 font-mono text-sm font-semibold">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               <span>Ready in Your Mail Client</span>
             </div>
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
               Your message has been pre-filled into your system&apos;s email client addressed to <strong>{PROFILE.socials.email.address}</strong>.
             </p>
           </div>
@@ -103,7 +103,7 @@ export default function ContactForm() {
           <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
             <a
               href={submittedStatus.mailtoUrl}
-              className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-mono text-xs font-semibold bg-electric-blue text-white hover:bg-electric-blue-hover transition-colors"
+              className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-mono text-xs font-semibold bg-electric-blue text-white hover:bg-electric-blue-hover transition-colors shadow-sm"
             >
               <ExternalLink className="w-4 h-4" />
               <span>Open Mail Client</span>
@@ -112,9 +112,9 @@ export default function ContactForm() {
             <button
               type="button"
               onClick={handleCopyEmail}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-mono text-xs font-semibold border border-cyber-violet/50 text-cyber-violet hover:bg-cyber-violet/10 transition-colors"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-mono text-xs font-semibold border border-cyber-violet-light/50 dark:border-cyber-violet/50 text-cyber-violet-light dark:text-cyber-violet hover:bg-cyber-violet-light/10 dark:hover:bg-cyber-violet/10 transition-colors"
             >
-              {copiedEmail ? <CheckCircle2 className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+              {copiedEmail ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
               <span>{copiedEmail ? 'Copied!' : 'Copy Email Address'}</span>
             </button>
           </div>
@@ -125,7 +125,7 @@ export default function ContactForm() {
               setSubmittedStatus(null);
               setFormData({ name: '', email: '', subject: '', message: '' });
             }}
-            className="text-xs font-mono text-slate-400 hover:text-white underline pt-2 block text-center w-full"
+            className="text-xs font-mono text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white underline pt-2 block text-center w-full"
           >
             Reset form
           </button>
@@ -137,9 +137,9 @@ export default function ContactForm() {
             <div>
               <label
                 htmlFor="contact-name"
-                className="block font-mono text-xs text-slate-300 dark:text-slate-300 light:text-slate-700 mb-1.5"
+                className="block font-mono text-xs text-slate-700 dark:text-slate-300 mb-1.5"
               >
-                Name <span className="text-red-400">*</span>
+                Name <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
@@ -151,14 +151,14 @@ export default function ContactForm() {
                 aria-required="true"
                 aria-invalid={!!errors.name}
                 aria-describedby={errors.name ? 'name-error' : undefined}
-                className={`w-full px-3.5 py-2.5 rounded-xl font-mono text-sm bg-dark-base/80 dark:bg-dark-base/80 light:bg-light-elevated border text-white dark:text-white light:text-slate-900 focus:outline-none transition-colors ${
+                className={`w-full px-3.5 py-2.5 rounded-xl font-mono text-sm bg-light-elevated dark:bg-dark-base/80 border text-slate-900 dark:text-white focus:outline-none transition-colors ${
                   errors.name
-                    ? 'border-red-500/80 focus:border-red-500'
-                    : 'border-dark-border/50 dark:border-dark-border/50 light:border-light-border focus:border-electric-blue'
+                    ? 'border-red-500 focus:border-red-500'
+                    : 'border-light-border dark:border-dark-border/50 focus:border-electric-blue'
                 }`}
               />
               {errors.name && (
-                <p id="name-error" className="mt-1 font-mono text-xs text-red-400">
+                <p id="name-error" className="mt-1 font-mono text-xs text-red-500">
                   {errors.name}
                 </p>
               )}
@@ -167,9 +167,9 @@ export default function ContactForm() {
             <div>
               <label
                 htmlFor="contact-email"
-                className="block font-mono text-xs text-slate-300 dark:text-slate-300 light:text-slate-700 mb-1.5"
+                className="block font-mono text-xs text-slate-700 dark:text-slate-300 mb-1.5"
               >
-                Email Address <span className="text-red-400">*</span>
+                Email Address <span className="text-red-500">*</span>
               </label>
               <input
                 type="email"
@@ -181,14 +181,14 @@ export default function ContactForm() {
                 aria-required="true"
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? 'email-error' : undefined}
-                className={`w-full px-3.5 py-2.5 rounded-xl font-mono text-sm bg-dark-base/80 dark:bg-dark-base/80 light:bg-light-elevated border text-white dark:text-white light:text-slate-900 focus:outline-none transition-colors ${
+                className={`w-full px-3.5 py-2.5 rounded-xl font-mono text-sm bg-light-elevated dark:bg-dark-base/80 border text-slate-900 dark:text-white focus:outline-none transition-colors ${
                   errors.email
-                    ? 'border-red-500/80 focus:border-red-500'
-                    : 'border-dark-border/50 dark:border-dark-border/50 light:border-light-border focus:border-electric-blue'
+                    ? 'border-red-500 focus:border-red-500'
+                    : 'border-light-border dark:border-dark-border/50 focus:border-electric-blue'
                 }`}
               />
               {errors.email && (
-                <p id="email-error" className="mt-1 font-mono text-xs text-red-400">
+                <p id="email-error" className="mt-1 font-mono text-xs text-red-500">
                   {errors.email}
                 </p>
               )}
@@ -199,9 +199,9 @@ export default function ContactForm() {
           <div>
             <label
               htmlFor="contact-subject"
-              className="block font-mono text-xs text-slate-300 dark:text-slate-300 light:text-slate-700 mb-1.5"
+              className="block font-mono text-xs text-slate-700 dark:text-slate-300 mb-1.5"
             >
-              Subject <span className="text-red-400">*</span>
+              Subject <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -213,14 +213,14 @@ export default function ContactForm() {
               aria-required="true"
               aria-invalid={!!errors.subject}
               aria-describedby={errors.subject ? 'subject-error' : undefined}
-              className={`w-full px-3.5 py-2.5 rounded-xl font-mono text-sm bg-dark-base/80 dark:bg-dark-base/80 light:bg-light-elevated border text-white dark:text-white light:text-slate-900 focus:outline-none transition-colors ${
+              className={`w-full px-3.5 py-2.5 rounded-xl font-mono text-sm bg-light-elevated dark:bg-dark-base/80 border text-slate-900 dark:text-white focus:outline-none transition-colors ${
                 errors.subject
-                  ? 'border-red-500/80 focus:border-red-500'
-                  : 'border-dark-border/50 dark:border-dark-border/50 light:border-light-border focus:border-electric-blue'
+                  ? 'border-red-500 focus:border-red-500'
+                  : 'border-light-border dark:border-dark-border/50 focus:border-electric-blue'
               }`}
             />
             {errors.subject && (
-              <p id="subject-error" className="mt-1 font-mono text-xs text-red-400">
+              <p id="subject-error" className="mt-1 font-mono text-xs text-red-500">
                 {errors.subject}
               </p>
             )}
@@ -230,9 +230,9 @@ export default function ContactForm() {
           <div>
             <label
               htmlFor="contact-message"
-              className="block font-mono text-xs text-slate-300 dark:text-slate-300 light:text-slate-700 mb-1.5"
+              className="block font-mono text-xs text-slate-700 dark:text-slate-300 mb-1.5"
             >
-              Message Content <span className="text-red-400">*</span>
+              Message Content <span className="text-red-500">*</span>
             </label>
             <textarea
               id="contact-message"
@@ -244,14 +244,14 @@ export default function ContactForm() {
               aria-required="true"
               aria-invalid={!!errors.message}
               aria-describedby={errors.message ? 'message-error' : undefined}
-              className={`w-full px-3.5 py-2.5 rounded-xl font-mono text-sm bg-dark-base/80 dark:bg-dark-base/80 light:bg-light-elevated border text-white dark:text-white light:text-slate-900 focus:outline-none transition-colors ${
+              className={`w-full px-3.5 py-2.5 rounded-xl font-mono text-sm bg-light-elevated dark:bg-dark-base/80 border text-slate-900 dark:text-white focus:outline-none transition-colors ${
                 errors.message
-                  ? 'border-red-500/80 focus:border-red-500'
-                  : 'border-dark-border/50 dark:border-dark-border/50 light:border-light-border focus:border-electric-blue'
+                  ? 'border-red-500 focus:border-red-500'
+                  : 'border-light-border dark:border-dark-border/50 focus:border-electric-blue'
               }`}
             />
             {errors.message && (
-              <p id="message-error" className="mt-1 font-mono text-xs text-red-400">
+              <p id="message-error" className="mt-1 font-mono text-xs text-red-500">
                 {errors.message}
               </p>
             )}

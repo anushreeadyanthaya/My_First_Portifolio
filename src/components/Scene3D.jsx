@@ -210,7 +210,7 @@ export default function Scene3D({ theme = 'dark' }) {
     <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
       <canvas
         ref={canvasRef}
-        className="w-full h-full opacity-60 dark:opacity-60 light:opacity-30 transition-opacity duration-500"
+        className="w-full h-full opacity-35 dark:opacity-60 transition-opacity duration-500"
       />
     </div>
   );

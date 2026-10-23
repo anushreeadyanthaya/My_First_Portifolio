@@ -22,19 +22,19 @@ export default function Achievements() {
   const secondaryAchievements = ACHIEVEMENTS.filter((a) => a.prominence === 'secondary');
 
   return (
-    <section id="achievements" className="py-20 relative border-t border-dark-border/20 dark:border-dark-border/20 light:border-light-border/30 bg-terminal-grid">
+    <section id="achievements" className="py-20 relative border-t border-light-border/40 dark:border-dark-border/20 bg-terminal-grid">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex items-center gap-2 mb-3 font-mono text-xs sm:text-sm text-electric-blue">
+        <div className="flex items-center gap-2 mb-3 font-mono text-xs sm:text-sm text-electric-blue-light dark:text-electric-blue">
           <span>// 04. ACHIEVEMENTS &amp; ACTIVITIES</span>
         </div>
 
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white dark:text-white light:text-light-text-primary">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-light-text-primary dark:text-white">
               Honors, Competitions &amp; Activities
             </h2>
-            <p className="mt-2 text-slate-400 dark:text-slate-400 light:text-light-text-secondary font-mono text-sm">
+            <p className="mt-2 text-light-text-secondary dark:text-slate-400 font-mono text-sm">
               Hackathon victories, technical finalist selections, and continuous learning
             </p>
           </div>
@@ -51,16 +51,16 @@ export default function Achievements() {
                 key={item.id}
                 className={`rounded-2xl border p-6 sm:p-8 backdrop-blur-md relative overflow-hidden transition-all duration-300 shadow-xl ${
                   isWinner
-                    ? 'border-cyber-violet/60 bg-dark-surface/90 dark:bg-dark-surface/90 light:bg-light-surface shadow-neon-violet/20 glow-border'
-                    : 'border-electric-blue/60 bg-dark-surface/90 dark:bg-dark-surface/90 light:bg-light-surface shadow-neon-blue/20 glow-border'
+                    ? 'border-cyber-violet-light/50 dark:border-cyber-violet/60 bg-light-surface dark:bg-dark-surface/90 shadow-neon-violet/10 dark:shadow-neon-violet/20 glow-border'
+                    : 'border-electric-blue-light/50 dark:border-electric-blue/60 bg-light-surface dark:bg-dark-surface/90 shadow-neon-blue/10 dark:shadow-neon-blue/20 glow-border'
                 }`}
               >
                 {/* Accent top border line */}
                 <div
                   className={`absolute top-0 left-0 right-0 h-1.5 ${
                     isWinner
-                      ? 'bg-gradient-to-r from-cyber-violet via-fuchsia-400 to-amber-400'
-                      : 'bg-gradient-to-r from-electric-blue via-cyan-400 to-teal-400'
+                      ? 'bg-gradient-to-r from-cyber-violet-light via-fuchsia-500 to-amber-500'
+                      : 'bg-gradient-to-r from-electric-blue-light via-cyan-500 to-teal-500'
                   }`}
                 />
 
@@ -68,23 +68,23 @@ export default function Achievements() {
                   <div
                     className={`p-3 rounded-xl ${
                       isWinner
-                        ? 'bg-cyber-violet/15 text-cyber-violet'
-                        : 'bg-electric-blue/15 text-electric-blue'
+                        ? 'bg-cyber-violet-light/10 dark:bg-cyber-violet/15 text-cyber-violet-light dark:text-cyber-violet'
+                        : 'bg-electric-blue-light/10 dark:bg-electric-blue/15 text-electric-blue-light dark:text-electric-blue'
                     }`}
                   >
                     <Icon className="w-7 h-7" />
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <span className="flex items-center gap-1 font-mono text-xs px-2.5 py-1 rounded-md bg-dark-base dark:bg-dark-base light:bg-light-elevated border border-dark-border/40 text-slate-400">
+                    <span className="flex items-center gap-1 font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-dark-base border border-slate-200 dark:border-dark-border/40 text-slate-600 dark:text-slate-400">
                       <Calendar className="w-3 h-3" />
                       {item.year}
                     </span>
                     <span
                       className={`font-mono text-xs font-semibold px-2.5 py-1 rounded-md uppercase ${
                         isWinner
-                          ? 'bg-amber-400/20 text-amber-300 border border-amber-400/40'
-                          : 'bg-cyan-400/20 text-cyan-300 border border-cyan-400/40'
+                          ? 'bg-amber-100 dark:bg-amber-400/20 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-400/40'
+                          : 'bg-cyan-100 dark:bg-cyan-400/20 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-400/40'
                       }`}
                     >
                       {item.badgeLabel}
@@ -92,11 +92,11 @@ export default function Achievements() {
                   </div>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-white dark:text-white light:text-light-text-primary tracking-tight">
+                <h3 className="text-xl sm:text-2xl font-bold text-light-text-primary dark:text-white tracking-tight">
                   {item.title}
                 </h3>
 
-                <p className="mt-3 text-sm text-slate-300 dark:text-slate-300 light:text-light-text-secondary leading-relaxed">
+                <p className="mt-3 text-sm text-light-text-secondary dark:text-slate-300 leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -111,15 +111,15 @@ export default function Achievements() {
             return (
               <div
                 key={item.id}
-                className="rounded-xl border border-dark-border/40 dark:border-dark-border/40 light:border-light-border bg-dark-surface/60 dark:bg-dark-surface/60 light:bg-light-surface p-5 hover:border-slate-500 transition-all duration-200"
+                className="rounded-xl border border-light-border dark:border-dark-border/40 bg-light-surface dark:bg-dark-surface/60 p-5 hover:border-slate-400 dark:hover:border-slate-500 transition-all duration-200 shadow-sm"
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-2.5 rounded-lg bg-slate-800 dark:bg-slate-800 light:bg-light-elevated text-electric-blue shrink-0">
+                  <div className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-electric-blue-light dark:text-electric-blue shrink-0">
                     <Icon className="w-5 h-5" />
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="font-mono text-[10px] uppercase px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700/60">
+                      <span className="font-mono text-[10px] uppercase px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700/60">
                         {item.category}
                       </span>
                       <span className="font-mono text-[10px] text-slate-500">
@@ -127,11 +127,11 @@ export default function Achievements() {
                       </span>
                     </div>
 
-                    <h4 className="text-base font-semibold text-white dark:text-white light:text-light-text-primary">
+                    <h4 className="text-base font-semibold text-light-text-primary dark:text-white">
                       {item.title}
                     </h4>
 
-                    <p className="text-xs text-slate-400 dark:text-slate-400 light:text-light-text-secondary mt-1 leading-relaxed">
+                    <p className="text-xs text-light-text-secondary dark:text-slate-400 mt-1 leading-relaxed">
                       {item.description}
                     </p>
                   </div>

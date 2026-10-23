@@ -5,16 +5,16 @@ export default function ProjectCard({ project }) {
   const isWinner = project.badgeType === 'winner';
 
   return (
-    <article className="rounded-2xl border border-dark-border/50 dark:border-dark-border/50 light:border-light-border bg-dark-surface/85 dark:bg-dark-surface/85 light:bg-light-surface overflow-hidden shadow-xl transition-all duration-300 hover:border-electric-blue/60 dark:hover:border-electric-blue/60 light:hover:border-electric-blue-light/60 flex flex-col justify-between group glow-border">
+    <article className="rounded-2xl border border-light-border dark:border-dark-border/50 bg-light-surface dark:bg-dark-surface/85 overflow-hidden shadow-xl transition-all duration-300 hover:border-electric-blue-light/60 dark:hover:border-electric-blue/60 flex flex-col justify-between group glow-border">
       <div>
         {/* Card Header & SVG Abstract Wireframe Illustration */}
-        <div className="relative h-48 sm:h-56 bg-[#06080F] dark:bg-[#06080F] light:bg-[#E2E8F0] p-4 flex items-center justify-center overflow-hidden border-b border-dark-border/30 dark:border-dark-border/30 light:border-light-border/40">
+        <div className="relative h-48 sm:h-56 bg-slate-100 dark:bg-[#06080F] p-4 flex items-center justify-center overflow-hidden border-b border-light-border dark:border-dark-border/30">
           <div className="absolute inset-0 bg-terminal-grid opacity-40"></div>
 
           {project.visualType === 'team-finder-matrix' ? (
             /* HackAce 2.O Team Finder & Resume Builder Visual Diagram */
             <svg
-              className="w-full h-full max-w-sm text-electric-blue"
+              className="w-full h-full max-w-sm text-electric-blue-light dark:text-electric-blue"
               viewBox="0 0 320 180"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ export default function ProjectCard({ project }) {
           ) : (
             /* Hacknima 2. Filter Pipeline Visual Diagram */
             <svg
-              className="w-full h-full max-w-sm text-cyan-400"
+              className="w-full h-full max-w-sm text-cyan-600 dark:text-cyan-400"
               viewBox="0 0 320 180"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -85,11 +85,11 @@ export default function ProjectCard({ project }) {
             <span
               className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold shadow-md ${
                 isWinner
-                  ? 'bg-cyber-violet/20 border border-cyber-violet text-cyber-violet'
-                  : 'bg-electric-blue/20 border border-electric-blue text-electric-blue'
+                  ? 'bg-cyber-violet/20 border border-cyber-violet text-cyber-violet-light dark:text-cyber-violet'
+                  : 'bg-electric-blue/20 border border-electric-blue text-electric-blue-light dark:text-electric-blue'
               }`}
             >
-              {isWinner ? <Trophy className="w-3.5 h-3.5 text-amber-400" /> : <Award className="w-3.5 h-3.5 text-cyan-300" />}
+              {isWinner ? <Trophy className="w-3.5 h-3.5 text-amber-500" /> : <Award className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-300" />}
               <span>{project.badge}</span>
             </span>
           </div>
@@ -97,27 +97,27 @@ export default function ProjectCard({ project }) {
 
         {/* Content Section */}
         <div className="p-6">
-          <h3 className="text-2xl font-bold text-white dark:text-white light:text-light-text-primary tracking-tight">
+          <h3 className="text-2xl font-bold text-light-text-primary dark:text-white tracking-tight">
             {project.title}
           </h3>
 
-          <p className="mt-1 text-sm font-mono text-electric-blue dark:text-electric-blue light:text-electric-blue-light">
+          <p className="mt-1 text-sm font-mono text-electric-blue-light dark:text-electric-blue">
             {project.tagline}
           </p>
 
-          <p className="mt-4 text-sm text-slate-300 dark:text-slate-300 light:text-light-text-secondary leading-relaxed">
+          <p className="mt-4 text-sm text-light-text-secondary dark:text-slate-300 leading-relaxed">
             {project.description}
           </p>
 
           {/* Capabilities Breakdown */}
           <div className="mt-5 space-y-2">
-            <span className="font-mono text-xs uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500 font-semibold">
+            <span className="font-mono text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">
               Project Capabilities:
             </span>
             <ul className="space-y-1.5">
               {project.capabilities.map((cap, idx) => (
-                <li key={idx} className="flex items-start gap-2 text-xs font-mono text-slate-300 dark:text-slate-300 light:text-slate-700">
-                  <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                <li key={idx} className="flex items-start gap-2 text-xs font-mono text-slate-700 dark:text-slate-300">
+                  <Check className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5" />
                   <span>{cap}</span>
                 </li>
               ))}
@@ -127,7 +127,7 @@ export default function ProjectCard({ project }) {
       </div>
 
       {/* Action Footer: only verified links, or non-clickable status label */}
-      <div className="p-6 pt-3 border-t border-dark-border/30 dark:border-dark-border/30 light:border-light-border/40 flex items-center justify-between bg-dark-surface/40 dark:bg-dark-surface/40 light:bg-light-surface">
+      <div className="p-6 pt-3 border-t border-light-border dark:border-dark-border/30 flex items-center justify-between bg-light-surface dark:bg-dark-surface/40">
         {project.status.isRepoAvailable ? (
           <a
             href={project.status.repo}
@@ -140,7 +140,7 @@ export default function ProjectCard({ project }) {
           </a>
         ) : (
           <span
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono text-xs font-medium border border-slate-700/60 dark:border-slate-700/60 light:border-slate-300 bg-slate-800/40 dark:bg-slate-800/40 light:bg-slate-100 text-slate-400 dark:text-slate-400 light:text-slate-600 select-none"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono text-xs font-medium border border-slate-300 dark:border-slate-700/60 bg-slate-100 dark:bg-slate-800/40 text-slate-600 dark:text-slate-400 select-none"
           >
             <GitBranch className="w-3.5 h-3.5 opacity-60" />
             <span>{project.status.repo}</span>

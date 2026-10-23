@@ -9,6 +9,7 @@ import Interests from './components/Interests';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ResumeModal from './components/ResumeModal';
+import Chatbot from './components/Chatbot';
 import { useTheme } from './hooks/useTheme';
 
 export default function App() {
@@ -16,7 +17,7 @@ export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-dark-base dark:bg-dark-base light:bg-light-base text-dark-text-primary dark:text-dark-text-primary light:text-light-text-primary transition-colors duration-300 flex flex-col font-sans selection:bg-electric-blue selection:text-white">
+    <div className="min-h-screen bg-light-base text-light-text-primary dark:bg-dark-base dark:text-dark-text-primary transition-colors duration-300 flex flex-col font-sans selection:bg-electric-blue selection:text-white">
       {/* Navigation Header */}
       <Navbar
         theme={theme}
@@ -47,6 +48,9 @@ export default function App() {
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}
       />
+
+      {/* AI Chatbot Widget */}
+      <Chatbot />
     </div>
   );
 }
